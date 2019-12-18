@@ -4,7 +4,7 @@ import Form from "./components/Form";
 import Weather from './components/Weather'
 
 const API_KEY = "dc50362f421145039e0d43b7627ffaca";
-const WETHER_API_URL = "http://api.openweathermap.org/data/2.5/weather";
+const WETHER_API_URL = "https://api.openweathermap.org/data/2.5/weather";
 const URL_PARAMETER_APPID = "appid";
 const URL_PARAMETER_LOCATION = "q";
 const URL_PARAMETER_UNITS = "units";
