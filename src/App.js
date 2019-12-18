@@ -12,7 +12,8 @@ const URL_PARAMETER_UNITS = "units";
 
 class App extends React.Component {
 
-  getWeather = async () => {
+  getWeather = async (e) => {
+    e.preventDefault();
     const api_call = await fetch(`${WETHER_API_URL}?${URL_PARAMETER_LOCATION}=Manchester,uk
       &${URL_PARAMETER_APPID}=${API_KEY}&${URL_PARAMETER_UNITS}=metric`);
     const data = await api_call.json();
@@ -23,7 +24,7 @@ class App extends React.Component {
     return (
       <div> 
         <Titles />
-        <Form />
+        <Form getWeather={this.getWeather}/>
         <Weather />
       </div>
     );
