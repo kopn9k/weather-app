@@ -8,14 +8,17 @@ const WETHER_API_URL = "http://api.openweathermap.org/data/2.5/weather";
 const URL_PARAMETER_APPID = "appid";
 const URL_PARAMETER_LOCATION = "q";
 const URL_PARAMETER_UNITS = "units";
+const DEFAULT_UNITS = "metric";
 
 
 class App extends React.Component {
 
   getWeather = async (e) => {
     e.preventDefault();
-    const api_call = await fetch(`${WETHER_API_URL}?${URL_PARAMETER_LOCATION}=Manchester,uk
-      &${URL_PARAMETER_APPID}=${API_KEY}&${URL_PARAMETER_UNITS}=metric`);
+    const city = e.target.elements.city.value;
+    const country = e.target.elements.country.value;
+    const api_call = await fetch(`${WETHER_API_URL}?${URL_PARAMETER_LOCATION}=${city},${country}
+      &${URL_PARAMETER_APPID}=${API_KEY}&${URL_PARAMETER_UNITS}=${DEFAULT_UNITS}`);
     const data = await api_call.json();
     console.log(data);
   }
